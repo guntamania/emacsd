@@ -1,0 +1,1 @@
+/Users/hyamada/dotemacs/init.el
