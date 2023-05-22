@@ -29,7 +29,6 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(show-paren-mode t) ; 対応する括弧を光らせる。
 (transient-mark-mode t) ; 選択部分のハイライト
 (global-font-lock-mode t)
 
@@ -56,4 +55,35 @@
     :ensure t
     :custom ((imenu-list-size . 30)
              (imenu-list-position . 'left))))
+
+(leaf zenburn-theme
+  :ensure t
+  :config (load-theme 'zenburn t)
+  )
+
+(leaf paren
+  :doc "highlight matching paren"
+  :tag "builtin"
+  :custom ((show-paren-delay . 0.1))
+  :global-minor-mode show-paren-mode)
+
+
+(leaf vertico
+  :ensure t
+  :global-minor-mode (vertico-mode)
+  ;; :custom ((vertico-count 20)
+  ;;          (vertico-resize t))
+  ;; ;; :config
+  ;; ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
+  ;; ;; (setq vertico-cycle t)
+  ;; (leaf savehist
+  ;;   :global-minor-mode (savehist-mode)
+  ;;  )
+ )
+  
+
+;; Persist history over Emacs restarts. Vertico sorts by history position.
+
+
+(provide 'init)
 
